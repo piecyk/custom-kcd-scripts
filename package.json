@@ -1,0 +1,38 @@
+{
+  "name": "custom-kcd-scripts",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "bin": {
+    "kcd-scripts": "dist/index.js"
+  },
+  "scripts": {
+    "build": "node src build",
+    "prepare": "npm run build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "node src pre-commit"
+    }
+  },
+  "devDependencies": {
+    "kcd-scripts": "github:piecyk/kcd-scripts#support-custom-scripts"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.7.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "kentcdodds",
+      "kentcdodds/jest"
+    ],
+    "rules": {
+      "no-process-exit": "off",
+      "import/no-dynamic-require": "off",
+      "import/no-unassigned-import": "off",
+      "no-console": "off",
+      "no-nested-ternary": "off",
+      "no-useless-catch": "off"
+    }
+  }
+}

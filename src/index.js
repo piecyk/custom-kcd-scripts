@@ -1,4 +1,10 @@
-const path = require('path');
-const scriptsPath = path.join(__dirname, 'scripts/');
+#!/usr/bin/env node
 
-require('kcd-scripts/dist/run-script')(scriptsPath);
+const path = require('path')
+
+const fromSrc = (...p) => path.join(__dirname, ...p)
+
+process.env.KCD_SCRIPTS_CUSTOM_SCRIPTS_PATH = fromSrc('scripts/')
+process.env.KCD_SCRIPTS_CUSTOM_CONFIG_PATH = fromSrc('config/')
+
+require('kcd-scripts/dist/index')
